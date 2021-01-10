@@ -6,13 +6,12 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class GetMethodTesting {
+public class DeleteMethodTesting {
 
 	public static void main(String[] args) {
+		Response response = RestAssured.delete("http://dummy.restapiexample.com/api/v1/delete/201");
 		
-		Response response = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");
-			response.prettyPrint();//JSON
-		  //Basic validation //status code
+		 //Basic validation //status code
 		  System.out.println("Status code = "+response.statusCode()); // validate
 		  //status code 200 or not 
 		  Assert.assertEquals(response.statusCode(), 200,
@@ -38,7 +37,6 @@ public class GetMethodTesting {
 		Assert.assertEquals(jsonPath.get("status").toString(), "success");
 		
 	
-		
 	}
 	
 }
